@@ -28,7 +28,7 @@ export default function LinkedinBadge({
   size = 'medium',
   theme = 'light',
   vanity,
-}: LinkedinBadgeProps): JSX.Element {
+}: LinkedinBadgeProps): React.JSX.Element {
   const [scriptState, setScriptState] = useState('start');
   const badgeFrame = useRef(null);
 

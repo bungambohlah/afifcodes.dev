@@ -1,15 +1,10 @@
 'use client';
 
-import { ArrowBackIcon } from '@chakra-ui/icons';
-import {
-  Heading,
-  Flex,
-  Box,
-  Button,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Heading, Flex, Box, Icon, IconButton } from '@chakra-ui/react';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import { BiArrowBack } from 'react-icons/bi';
+import { useColorModeValue } from '../components/ui/color-mode';
 
 import ChakraNextImage from './ChakraNextImage';
 
@@ -20,11 +15,11 @@ type LayoutProps = {
   children: ReactNode;
   home?: boolean;
 };
-export function Layout({ children, home }: LayoutProps): JSX.Element {
+export function Layout({ children, home }: LayoutProps): React.JSX.Element {
   const headingSize = {
     base: 'lg',
     md: 'xl',
-  };
+  } as const;
   const background = useColorModeValue('gray.200', 'whiteAlpha.100');
 
   return (
@@ -55,7 +50,7 @@ export function Layout({ children, home }: LayoutProps): JSX.Element {
                 xl: 130,
                 '2xl': 150,
               }}
-              src='/images/profile.png'
+              src='/images/profile.jpg'
               alt={name}
               borderRadius='50%'
             />
@@ -104,7 +99,7 @@ export function Layout({ children, home }: LayoutProps): JSX.Element {
                   xl: 120,
                   '2xl': 130,
                 }}
-                src='/images/profile.png'
+                src='/images/profile.jpg'
                 alt={name}
                 borderRadius='50%'
               />
@@ -124,13 +119,14 @@ export function Layout({ children, home }: LayoutProps): JSX.Element {
       {!home && (
         <Link href='/' passHref>
           <Box my={6}>
-            <Button
+            <IconButton
               aria-label='Back to home'
-              leftIcon={<ArrowBackIcon />}
               colorScheme='gray'
               variant='outline'>
-              Back to home
-            </Button>
+              <Icon>
+                <BiArrowBack />
+              </Icon>
+            </IconButton>
           </Box>
         </Link>
       )}

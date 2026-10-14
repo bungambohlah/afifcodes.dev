@@ -1,4 +1,4 @@
-export default function BgAnimation(): JSX.Element {
+export default function BgAnimation(): React.JSX.Element {
   return (
     <div className='bg-animation-context'>
       <div className='bg-animation-area'>

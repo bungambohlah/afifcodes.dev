@@ -1,70 +1,99 @@
-import type { ChakraProps } from '@chakra-ui/react';
-import { extendTheme } from '@chakra-ui/react';
-import { mode } from '@chakra-ui/theme-tools';
+import {
+  createSystem,
+  defaultConfig,
+  defineConfig,
+  defineRecipe,
+} from '@chakra-ui/react';
 
-const styles = {
-  global: (props: ChakraProps) => ({
-    body: {
-      bg: mode('#f9fafb', '#202023')(props),
-    },
-  }),
-};
-
-const components = {
-  Heading: {
-    variants: {
+const headingRecipe = defineRecipe({
+  variants: {
+    variant: {
       'section-title': {
         textDecoration: 'underline',
-        fontSize: 20,
-        textUnderlineOffset: 6,
+        fontSize: '20px',
+        textUnderlineOffset: '6px',
         textDecorationColor: '#525252',
-        textDecorationThickness: 4,
-        marginTop: 3,
-        marginBottom: 4,
+        textDecorationThickness: '4px',
+        marginTop: '3',
+        marginBottom: '4',
       },
     },
   },
-  Link: {
-    baseStyle: (props: ChakraProps) => ({
-      color: mode('#3d7aed', '#ff63c3')(props),
-      textUnderlineOffset: 3,
-    }),
+});
+
+const linkRecipe = defineRecipe({
+  base: {
+    color: 'app.link',
+    textUnderlineOffset: '3px',
   },
-};
+});
 
-const colors = {
-  grassTeal: '#88ccca',
-  github: {
-    50: '#f5f5f5',
-    100: '#ebebeb',
-    200: '#cccccc',
-    300: '#adadad',
-    400: '#707070',
-    500: '#333333',
-    600: '#2e2e2e',
-    700: '#262626',
-    800: '#1f1f1f',
-    900: '#191919',
+const config = defineConfig({
+  globalCss: {
+    body: {
+      bg: 'app.background',
+    },
   },
-  polywork: {
-    50: '#f5f5f5',
-    100: '#ece9fb',
-    200: '#c5bdf4',
-    300: '#9e92ed',
-    400: '#7766e6',
-    500: '#503adf',
-    600: '#3720c5',
-    700: '#1e126d',
-    800: '#120b42',
-    900: '#060416',
+
+  theme: {
+    tokens: {
+      colors: {
+        grassTeal: { value: '#88ccca' },
+
+        github: {
+          50: { value: '#f5f5f5' },
+          100: { value: '#ebebeb' },
+          200: { value: '#cccccc' },
+          300: { value: '#adadad' },
+          400: { value: '#707070' },
+          500: { value: '#333333' },
+          600: { value: '#2e2e2e' },
+          700: { value: '#262626' },
+          800: { value: '#1f1f1f' },
+          900: { value: '#191919' },
+        },
+
+        polywork: {
+          50: { value: '#f5f5f5' },
+          100: { value: '#ece9fb' },
+          200: { value: '#c5bdf4' },
+          300: { value: '#9e92ed' },
+          400: { value: '#7766e6' },
+          500: { value: '#503adf' },
+          600: { value: '#3720c5' },
+          700: { value: '#1e126d' },
+          800: { value: '#120b42' },
+          900: { value: '#060416' },
+        },
+      },
+    },
+
+    semanticTokens: {
+      colors: {
+        app: {
+          background: {
+            value: {
+              base: '#f9fafb',
+              _dark: '#202023',
+            },
+          },
+          link: {
+            value: {
+              base: '#3d7aed',
+              _dark: '#ff63c3',
+            },
+          },
+        },
+      },
+    },
+
+    recipes: {
+      heading: headingRecipe,
+      link: linkRecipe,
+    },
   },
-};
+});
 
-const config = {
-  initialColorMode: 'dark',
-  useSystemColorMode: true,
-};
+const system = createSystem(defaultConfig, config);
 
-const theme = extendTheme({ colors, components, styles, config });
-
-export default theme;
+export default system;

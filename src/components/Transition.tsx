@@ -26,7 +26,7 @@ const variants = {
 
 export default function Transition({
   children,
-}: PropsWithChildren): JSX.Element {
+}: PropsWithChildren): React.JSX.Element {
   const pathname = usePathname();
 
   return (

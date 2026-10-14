@@ -15,7 +15,7 @@ const FORWARDED_PROPS = [
   'loader',
 ] as const;
 
-type ForwardedProps = typeof FORWARDED_PROPS[number];
+type ForwardedProps = (typeof FORWARDED_PROPS)[number];
 
 // Width and height types which may contain Chakra's responsive array or object
 type Width = NonNullable<ImageProps['width']>;
@@ -61,7 +61,7 @@ const toBase64 = (str: string) =>
     ? Buffer.from(str).toString('base64')
     : window.btoa(str);
 
-export default function Image(props: ChakraNextImageProps): JSX.Element {
+export default function Image(props: ChakraNextImageProps): React.JSX.Element {
   const { width, height } = props;
 
   const responsiveWidth = getResponsive(width);

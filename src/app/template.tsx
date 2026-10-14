@@ -11,7 +11,9 @@ const progress = new ProgressBar({
   delay: 100,
 });
 
-export default function Template({ children }: PropsWithChildren): JSX.Element {
+export default function Template({
+  children,
+}: PropsWithChildren): React.JSX.Element {
   useEffect(() => {
     Router.events.on('routeChangeStart', progress.start);
     Router.events.on('routeChangeComplete', () => {

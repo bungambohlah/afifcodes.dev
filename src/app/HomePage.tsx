@@ -1,21 +1,10 @@
 'use client';
 
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Icon,
-  List,
-  ListItem,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Icon, Text } from '@chakra-ui/react';
+import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import Link from 'next/link';
-import { MouseEventHandler } from 'react';
 
-import Date from '../components/date';
 import { Layout } from '../components/Layout';
-import type { PostData } from '../lib/posts';
 
 type LinkData = {
   name: string;
@@ -24,24 +13,15 @@ type LinkData = {
 
 type ListLink = {
   cv_en: LinkData;
-  cv_id: LinkData;
   resume: LinkData;
 };
 type ListLinkKey = keyof ListLink;
-type IndexPageProps = {
-  allPostsData: PostData[];
-};
-export default function HomePage({
-  allPostsData,
-}: IndexPageProps): JSX.Element {
+type IndexPageProps = {};
+export default function HomePage({}: IndexPageProps): React.JSX.Element {
   const links: ListLink = {
     cv_en: {
-      name: 'CV (EN).pdf',
+      name: 'CV.pdf',
       url: '/cv/CV Afif Abdillah Jusuf_en.pdf',
-    },
-    cv_id: {
-      name: 'CV (ID).pdf',
-      url: '/cv/CV Afif Abdillah Jusuf_id.pdf',
     },
     resume: {
       name: 'Resume.pdf',
@@ -70,7 +50,7 @@ export default function HomePage({
               onClick={() =>
                 window.open('https://fb.me/afifabdillahj', '_target')
               }>
-              <Icon name='facebook' />
+              <FaFacebook />
             </Button>
             <Button
               aria-label='My Twitter'
@@ -80,7 +60,7 @@ export default function HomePage({
               onClick={() =>
                 window.open('https://twitter.com/bungambohlah', '_target')
               }>
-              <Icon name='twitter' />
+              <FaTwitter />
             </Button>
             <Button
               aria-label='My Github'
@@ -90,7 +70,7 @@ export default function HomePage({
               onClick={() =>
                 window.open('https://github.com/bungambohlah', '_target')
               }>
-              <Icon name='github' />
+              <FaGithub />
             </Button>
             <Button
               aria-label='My Linkedin'
@@ -99,16 +79,7 @@ export default function HomePage({
               onClick={() =>
                 window.open('https://www.linkedin.com/in/afifjusuf/', '_target')
               }>
-              <Icon name='linkedin' />
-            </Button>
-            <Button
-              aria-label='My Polywork'
-              colorScheme='polywork'
-              mx='1'
-              onClick={() =>
-                window.open('https://polywork.afif.dev/', '_target')
-              }>
-              <Icon name='polywork' />
+              <FaLinkedin />
             </Button>
           </Flex>
         </Box>
@@ -146,34 +117,11 @@ export default function HomePage({
         <Heading as='h2' size='lg'>
           Portofolio
         </Heading>
-        <Text fontSize='sm' my='1'>
-          Coming soon...
-        </Text>
-      </section>
-
-      {/* Blog */}
-      <section style={{ padding: '24px 0' }}>
-        <Heading as='h2' size='lg' mb={6}>
-          Blog
-        </Heading>
-        <List spacing={3}>
-          {allPostsData
-            ? allPostsData.map(({ id, date, title }) => (
-                <Link key={id} href={`/posts/${id}`} prefetch={false}>
-                  <ListItem cursor='pointer'>
-                    <Heading as='h3' size='md'>
-                      {title}
-                    </Heading>
-                    {date ? (
-                      <Text fontSize='sm' my='1'>
-                        <Date dateString={date} />
-                      </Text>
-                    ) : null}
-                  </ListItem>
-                </Link>
-              ))
-            : null}
-        </List>
+        <Link href='https://portofolio.afifcodes.dev' prefetch={false}>
+          <Button aria-label='Portofolio' colorScheme='messenger' my='4'>
+            <Text fontSize='sm'>See My Portofolio</Text>
+          </Button>
+        </Link>
       </section>
     </Layout>
   );
