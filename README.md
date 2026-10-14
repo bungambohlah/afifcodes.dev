@@ -1,4 +1,4 @@
-# afif.dev
+# afifcodes.dev
 
 This is a basic project for my personal site and with my portofolio included
 
@@ -8,14 +8,13 @@ This is a basic project for my personal site and with my portofolio included
 2. Optimization SEO with next-seo
 3. Chakra UI
 4. ESlint & Prettier
-5. Husky & Commitizen with conventional message + emoticon & Commitlint integrated
-6. Dark & Light mode
-7. Parsing Markdown with Remark
-8. Page transitions and Animation effects with framer-motion combined with chakra-ui
+5. Dark & Light mode
+6. Parsing Markdown with Remark
+7. Page transitions and Animation effects with framer-motion combined with chakra-ui
 
 ## Link
 
-you can visit at [afif.dev](https://afif.dev)
+you can visit at [afifcodes.dev](https://afifcodes.dev)
 
 ## About Me
 
@@ -27,7 +26,7 @@ Graduated from [Politeknik Elektronika Negeri Surabaya](https://pens.ac.id) as A
 
 Nice to meet you.
 
-Visit my personal site at [afif.dev](https://afif.dev).
+Visit my personal site at [afifcodes.dev](https://afifcodes.dev).
 
 ## License
 
