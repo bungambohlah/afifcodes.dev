@@ -1,15 +1,11 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "allowSyntheticDefaultImports": true,
     "composite": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
     "module": "ESNext",
     "moduleResolution": "Node",
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext"
+    "noEmit": true
   },
-  "include": ["src/**/*", "tests/**/*", ".eslintrc.js"]
+  "include": ["next.config.ts", "scripts/**/*.ts", "tests/**/*.ts"]
 }

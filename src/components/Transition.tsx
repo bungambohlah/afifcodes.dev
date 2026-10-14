@@ -1,3 +1,5 @@
+'use client';
+
 import { AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import type { PropsWithChildren } from 'react';
@@ -31,7 +33,7 @@ export default function Transition({
 
   return (
     <div className='pageTransitionEffect'>
-      <AnimatePresence initial={false} exitBeforeEnter>
+      <AnimatePresence initial={false} mode='wait'>
         <ChakraFramerBox
           key={pathname}
           variants={variants}
